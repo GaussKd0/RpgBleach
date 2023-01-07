@@ -10,10 +10,10 @@ public class Iniciar {
         }
 
         System.out.println("Seus Atributos\n" + "ATK: " + Atributos.getAtk() + "\nSP: " + Atributos.getSp() + "\nDEF: " + Atributos.getDef()
-                + "\nSTA: " + Atributos.getSTA()
+                + "\nSTA: " + Atributos.getSTA() +"\nSpeed: " + Atributos.getVel()
         );
-        Inimigos.setHp(50);
-        Inimigos.setVelocidade(300);
+        Inimigos.setHp(350);
+        Inimigos.setVelocidade(10);
         Inimigos.setAtk(30);
         Batalha.batalha();
 
