@@ -1,12 +1,11 @@
 import  java.util.Scanner;
 public class Nome {
-    private String Nome;
-
-    public String getNome() {
+    private static String Nome;
+    public  static  String getNome() {
         return Nome;
     }
 
-    public void setNome() {
+    public static void setNome() {
         System.out.println("Digite O Seu Nome");
         Scanner scan = new Scanner(System.in);
         String nome = scan.nextLine();

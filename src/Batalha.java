@@ -34,15 +34,29 @@ public class Batalha {
                 case 1,2,3,4,5,6,7,8,9:
                     if (resposta == 1){
                         i++;
-                        System.out.println("Voce atacou com atk!");
-                        Inimigos.setHp(-Atributos.getAtk());
-                        System.out.println("Vida Hollow: " + Inimigos.getHp() );
+                        System.out.println(Nome.getNome() + " Atacou com atk!");
+                        if (Killers.getKiller1() == Inimigos.getTipoDoInimigo()){
+
+                            System.out.println(Nome.getNome() + " Atacou Com Atk, Dano: " + Atributos.getAtk() * 2);
+                            Inimigos.setHp(-Atributos.getAtk() * 2);
+                        }
+                        else {
+                            System.out.println(Nome.getNome() + " Atacou Com Atk, Dano: " + Atributos.getAtk());
+                            Inimigos.setHp(-Atributos.getAtk());
+                        }
+                        System.out.println(Inimigos.getTipoDoInimigo() + " Vida: " + Inimigos.getHp());
                     }
                     else if(resposta == 2){
                         i++;
-                        System.out.println("Voce atacou com Sp, Dano" + Atributos.getSp() );
-                        Inimigos.setHp(-Atributos.getSp());
-                        System.out.println("Vida Hollow: " + Inimigos.getHp() );
+                        if (Killers.getKiller1() == Inimigos.getTipoDoInimigo()){
+                            System.out.println(Nome.getNome() + " Atacou Com Sp, Dano: " + Atributos.getSp() * 2);
+                            Inimigos.setHp(-Atributos.getSp() * 2);
+                        }
+                        else {
+                            System.out.println(Nome.getNome() + " Atacou Com Sp, Dano: " + Atributos.getSp());
+                            Inimigos.setHp(-Atributos.getSp());
+                        }
+                        System.out.println(Inimigos.getTipoDoInimigo() + " Vida: " + Inimigos.getHp() );
                     }
                     break;
                 case 10:
@@ -54,13 +68,14 @@ public class Batalha {
                 case 1,2,3,4,5,6,7,8,9:
                     if(Inimigos.getHp() > 0 ){
                         i++;
-                        System.out.println("Hollow Atacou, Dano: " + Inimigos.getAtk());
+                        System.out.println(Inimigos.getTipoDoInimigo() +" Atacou, Dano: " + Inimigos.getAtk());
                         Atributos.setSTA(-Inimigos.getAtk());
                         System.out.println("\nSua Vida: " + Atributos.getSTA());
                     } else{
                         i++;
-                        System.out.println("\nHollow Derrotado");
-                        Atributos.setXP(100);
+                        System.out.println("\n" + Inimigos.getTipoDoInimigo() + "Derrotado");
+
+                        Atributos.setXP((100 + Inimigos.getForcaLvl() ) * 2);
                     }
                     break;
                 case 10:
@@ -76,7 +91,7 @@ public class Batalha {
         Random rnd = new Random();
         switch (rnd.nextInt(1,10)){
             case 1,2,3,4,5,6,7,8,9:
-                System.out.println("Hollow Atacou, Dano: " + Inimigos.getAtk());
+                System.out.println(Inimigos.getTipoDoInimigo() +" Atacou, Dano: " + Inimigos.getAtk());
                 Atributos.setSTA(-Inimigos.getAtk());
                 System.out.println("\nSua Vida: " + Atributos.getSTA());
                 break;
@@ -84,7 +99,6 @@ public class Batalha {
                 System.out.println("Errou Ataque");
                 break;
         }
-
         if (Atributos.getSTA() > 0){
             for (int i =0; i == 0;) {
                 System.out.println("[1] ATK [2]SP");
@@ -93,13 +107,29 @@ public class Batalha {
                     case 1,2,3,4,5,6,7,8,9:
                         if (resposta == 1) {
                             i++;
-                            System.out.println("Voce atacou com atk!");
-                            Inimigos.setHp(-Atributos.getAtk());
+                            System.out.println(Nome.getNome() + " Atacou Com Atk!");
+                            if (Killers.getKiller1() == Inimigos.getTipoDoInimigo()){
+
+                                System.out.println(Nome.getNome() + " Atacou Com Atk, Dano: " + Atributos.getAtk() * 2);
+                                Inimigos.setHp(-Atributos.getAtk() * 2);
+                            }
+                            else {
+                                System.out.println(Nome.getNome() + " Atacou Com Atk, Dano: " + Atributos.getAtk());
+                                Inimigos.setHp(-Atributos.getAtk());
+                            }
+
                             System.out.println("Vida Hollow: " + Inimigos.getHp());
+
                         } else if (resposta == 2) {
                             i++;
-                            System.out.println("Voce atacou com sp");
-                            Inimigos.setHp(-Atributos.getSp());
+                            if (Killers.getKiller1() == Inimigos.getTipoDoInimigo()){
+                                System.out.println(Nome.getNome() + " Atacou Com Sp, Dano: " + Atributos.getSp() * 2);
+                                Inimigos.setHp(-Atributos.getSp() * 2);
+                            }
+                            else {
+                                System.out.println(Nome.getNome() + " Atacou Com Sp, Dano: " + Atributos.getSp());
+                                Inimigos.setHp(-Atributos.getSp());
+                            }
                             System.out.println("Vida Hollow: " + Inimigos.getHp());
                         }
                         break;
@@ -111,7 +141,7 @@ public class Batalha {
             }
             if (Inimigos.getHp() <= 0){
                 System.out.println("Hollow Derrotado");
-                Atributos.setXP(100);
+                Atributos.setXP((100 + Inimigos.getForcaLvl() ) * 2);
             }
         }
         else {

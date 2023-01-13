@@ -1,3 +1,4 @@
-public class Arcos extends Espadas{
+public class Arcos  {
+    
 
 }

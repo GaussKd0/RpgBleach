@@ -120,11 +120,11 @@ public class Atributos{
 
         if(XP >= 100){
             if(Raca.getRaca() == "Fullbring"){
-                setSTA(2);
-                setDef(1);
-                setAtk(4);
-                setSP(2);
-                setVel(1);
+                setSTA(2 * 2);
+                setDef(1 * 2 );
+                setAtk(4 * 2 );
+                setSP(2 * 2);
+                setVel(1 * 2);
             }
 
             if(Raca.getRaca() == "Quincy"){

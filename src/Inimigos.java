@@ -55,25 +55,74 @@ public class Inimigos {
     public static void setTipoInimigo(String TIPODOINIMIGO){
         TipoDoInimigo = TIPODOINIMIGO;
     }
-    public static void setInimigoRnd(){
+    public static void setInimigoRnd(int Lvl){
         Random Inimigos = new Random();
-        Inimigos.nextInt(1,4);
-        switch (Inimigos.nextInt(1,4)){
+        switch (Inimigos.nextInt(1,6)){
             case 1:
                 TipoDoInimigo = "Hollow";
                 calcularForcaLvl();
-                setLvl(1);
-                setHp(100 + getForcaLvl());
+                setLvl(Lvl);
+                setHp(110 + getForcaLvl());
                 setAtk(30 + getForcaLvl());
                 setVelocidade(15 + getForcaLvl());
                 break;
             case 2:
+                TipoDoInimigo = "Quincy";
+                calcularForcaLvl();
+                setLvl(Lvl);
+                setHp(80 + getForcaLvl());
+                setAtk(50 + getForcaLvl());
+                setVelocidade(30 + getForcaLvl());
+            case 3:
+                TipoDoInimigo = "Arrancar";
+                calcularForcaLvl();
+                setLvl(Lvl);
+                setHp(120 + getForcaLvl());
+                setAtk(100 + getForcaLvl());
+                setVelocidade(25 + getForcaLvl());
+            case 4:
+                TipoDoInimigo = "Vizard";
+                calcularForcaLvl();
+                setLvl(Lvl);
+                setHp(150 + getForcaLvl());
+                setAtk(120 + getForcaLvl());
+                setVelocidade(40 + getForcaLvl());
+            case 5:
+                TipoDoInimigo = "Shinigami";
+                calcularForcaLvl();
+                setLvl(Lvl);
+                setHp(100 + getForcaLvl());
+                setAtk(40 + getForcaLvl());
+                setVelocidade(20 + getForcaLvl());
+            case 6:
+                TipoDoInimigo = "Fullbring";
+                calcularForcaLvl();
+                setLvl(Lvl);
+                setHp(80 + getForcaLvl());
+                setAtk(50 + getForcaLvl());
+                setVelocidade(15 + getForcaLvl());
         }
     }
 
     public static void calcularForcaLvl(){
         if(getTipoDoInimigo() == "Hollow"){
-            setForcaLvl(getLvl() + 2 * 2);
+            setForcaLvl(getLvl() + (3 * 3));
+            setHp(getLvl() * 3);
+        }
+        if(getTipoDoInimigo() == "Quincy"){
+            setForcaLvl(getLvl() + (3 * 3));
+        }
+        if(getTipoDoInimigo() == "Arrancar"){
+            setForcaLvl(getLvl() + (5 * 6));
+        }
+        if(getTipoDoInimigo() == "Fullbring"){
+            setForcaLvl(getLvl() + (2 * 2));
+        }
+        if(getTipoDoInimigo() == "Vizard"){
+            setForcaLvl(getLvl() + (5 * 7));
+        }
+        if(getTipoDoInimigo() == "Shinigami"){
+            setForcaLvl(getLvl() + (3 * 4));
         }
     }
 }

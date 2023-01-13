@@ -26,9 +26,9 @@ public class Raca {
                 Raca = Racas[2];
                 break;
 
-            case 5:{
+            case 5:
                 Raca = Racas[3];
-            }
+                break;
         }
     }
 }
