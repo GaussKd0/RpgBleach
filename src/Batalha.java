@@ -3,6 +3,30 @@ import java.util.Scanner;
 
 public class Batalha {
 
+    private static int DanoPorTipoSp;
+    private static int DanoPorTipoSpInimigo;
+    private static int DanoPorTipo;
+    private static int DanoPorTipoInimigo;
+
+    public static int getDanoPorTipo(){
+        return DanoPorTipo;
+    }
+
+    public static int getDanoPorTipoInimigo(){
+        return DanoPorTipoInimigo;
+    }
+
+
+    public static void setDanoPorTipo(int Dano){
+        DanoPorTipo = Dano;
+    }
+
+
+    public static void setDanoPorTipoInimigo(int Dano){
+        DanoPorTipoInimigo = Dano;
+    }
+
+
     public static  void batalha(){
         while (Atributos.getSTA() >= 0 || Inimigos.getHp() >= 0){
 
@@ -34,9 +58,7 @@ public class Batalha {
                 case 1,2,3,4,5,6,7,8,9:
                     if (resposta == 1){
                         i++;
-                        System.out.println(Nome.getNome() + " Atacou com atk!");
                         if (Killers.getKiller1() == Inimigos.getTipoDoInimigo()){
-
                             System.out.println(Nome.getNome() + " Atacou Com Atk, Dano: " + Atributos.getAtk() * 2);
                             Inimigos.setHp(-Atributos.getAtk() * 2);
                         }
@@ -60,7 +82,7 @@ public class Batalha {
                     }
                     break;
                 case 10:
-                    System.out.println("Errou Ataque");
+                    System.out.println(Nome.getNome() + " Errou Ataque");
                     break;
             }
 
@@ -73,13 +95,14 @@ public class Batalha {
                         System.out.println("\nSua Vida: " + Atributos.getSTA());
                     } else{
                         i++;
-                        System.out.println("\n" + Inimigos.getTipoDoInimigo() + "Derrotado");
-
+                        System.out.println("\n" + Inimigos.getTipoDoInimigo() + " Derrotado");
                         Atributos.setXP((100 + Inimigos.getForcaLvl() ) * 2);
+                        Atributos.XPLV();
+                        System.out.println(Atributos.getXP());
                     }
                     break;
                 case 10:
-                    System.out.println("Errou Ataque");
+                    System.out.println(Inimigos.getTipoDoInimigo() + " Errou Ataque");
                     break;
             }
 
@@ -96,7 +119,7 @@ public class Batalha {
                 System.out.println("\nSua Vida: " + Atributos.getSTA());
                 break;
             case 10:
-                System.out.println("Errou Ataque");
+                System.out.println(Inimigos.getTipoDoInimigo() + "Errou Ataque");
                 break;
         }
         if (Atributos.getSTA() > 0){
@@ -107,7 +130,6 @@ public class Batalha {
                     case 1,2,3,4,5,6,7,8,9:
                         if (resposta == 1) {
                             i++;
-                            System.out.println(Nome.getNome() + " Atacou Com Atk!");
                             if (Killers.getKiller1() == Inimigos.getTipoDoInimigo()){
 
                                 System.out.println(Nome.getNome() + " Atacou Com Atk, Dano: " + Atributos.getAtk() * 2);
@@ -118,7 +140,7 @@ public class Batalha {
                                 Inimigos.setHp(-Atributos.getAtk());
                             }
 
-                            System.out.println("Vida Hollow: " + Inimigos.getHp());
+                            System.out.println(Inimigos.getTipoDoInimigo() + ": " + Inimigos.getHp());
 
                         } else if (resposta == 2) {
                             i++;
@@ -130,23 +152,41 @@ public class Batalha {
                                 System.out.println(Nome.getNome() + " Atacou Com Sp, Dano: " + Atributos.getSp());
                                 Inimigos.setHp(-Atributos.getSp());
                             }
-                            System.out.println("Vida Hollow: " + Inimigos.getHp());
+                            System.out.println("Vida " + Inimigos.getTipoDoInimigo() + ": " + Inimigos.getHp());
                         }
                         break;
                     case 10:
-                        System.out.println("Errou Ataque");
+                        System.out.println(Nome.getNome() +" Errou Ataque");
                         break;
                 }
 
             }
             if (Inimigos.getHp() <= 0){
-                System.out.println("Hollow Derrotado");
+                System.out.println(Inimigos.getTipoDoInimigo()+ " Derrotado");
                 Atributos.setXP((100 + Inimigos.getForcaLvl() ) * 2);
+                Atributos.XPLV();
+                System.out.println(Atributos.getXP());
+
             }
         }
         else {
-            System.out.println("Voce foi derrotado");
+            System.out.println(Nome.getNome() + " foi derrotado");
         }
 
+    }
+    public static void AtribuicaoDoTipo(){
+        int x1 = Inimigos.getAtk() *2;
+        int y1 = Atributos.getAtk() *2;
+        int x2 = Inimigos.getAtk()/2;
+        int y2 = Atributos.getAtk()/2;
+
+        if(Tipo.getTipoInimigo() == "Mind" && Tipo.getTipo() == "Heart"){
+            setDanoPorTipo(y1);
+            setDanoPorTipoInimigo(x1);
+        }
+        if (Tipo.getTipoInimigo() == "Power" && Tipo.getTipo() == "Speed"){
+            setDanoPorTipoInimigo(x2);
+            setDanoPorTipo(y2);
+        }
     }
 }

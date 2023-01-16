@@ -69,96 +69,112 @@ public class Atributos{
         Vel += Velocidade;
     }
 
-    public static void atributos(){
+        public static void atributos(){
 
-        if(Raca.getRaca() == "Fullbring"){
-            setXP(0);
-            setSTA(250);
-            setDef(10);
-            setAtk(100);
-            setSP(50);
-            setVel(10);
-        }
-
-        if(Raca.getRaca() == "Quincy"){
-            setXP(0);
-            setSTA(260);
-            setDef(20);
-            setAtk(50);
-            setSP(250);
-            setVel(60);
-        }
-
-        if(Raca.getRaca() == "Shinigami"){
-            setXP(0);
-            setSTA(350);
-            setDef(25);
-            setAtk(125);
-            setSP(200);
-            setVel(30);
-        }
-
-        if(Raca.getRaca() == "Hollow"){
-            setXP(0);
-            setSTA(400);
-            setDef(40);
-            setAtk(200);
-            setSP(350);
-            setVel(25);
-        }
-
-        if(Raca.getRaca() == "Vaizard"){
-            setXP(0);
-            setSTA(370);
-            setDef(30);
-            setAtk(150);
-            setSP(500);
-            setVel(40);
-        }
-    }
-    public static void LvlUp(){
-
-        if(XP >= 100){
             if(Raca.getRaca() == "Fullbring"){
-                setSTA(2 * 2);
-                setDef(1 * 2 );
-                setAtk(4 * 2 );
-                setSP(2 * 2);
-                setVel(1 * 2);
+                setXP(0);
+                setSTA(250);
+                setDef(10);
+                setAtk(100);
+                setSP(50);
+                setVel(10);
             }
 
             if(Raca.getRaca() == "Quincy"){
-                setSTA(4);
-                setDef(2);
-                setAtk(1);
-                setSP(6);
-                setVel(5);
+                setXP(0);
+                setSTA(260);
+                setDef(20);
+                setAtk(50);
+                setSP(250);
+                setVel(60);
             }
 
             if(Raca.getRaca() == "Shinigami"){
-                setSTA(7);
-                setDef(3);
-                setAtk(4);
-                setSP(5);
-                setVel(2);
+                setXP(0);
+                setSTA(350);
+                setDef(25);
+                setAtk(125);
+                setSP(200);
+                setVel(30);
             }
 
             if(Raca.getRaca() == "Hollow"){
-                setSTA(10);
-                setDef(4);
-                setAtk(6);
-                setSP(9);
-                setVel(1);
+                setXP(0);
+                setSTA(400);
+                setDef(40);
+                setAtk(200);
+                setSP(350);
+                setVel(25);
             }
 
             if(Raca.getRaca() == "Vaizard"){
-                setSTA(7);
-                setDef(3);
-                setAtk(5);
-                setSP(15);
-                setVel(4);
+                setXP(0);
+                setSTA(370);
+                setDef(30);
+                setAtk(150);
+                setSP(500);
+                setVel(40);
             }
         }
-    }
+        public static void LvlUp(){
 
-}
+            if(Raca.getRaca() == "Fullbring"){
+                setSTA((getLvl() + 2) * 2);
+                setDef((getLvl() + 1) * 2 );
+                setAtk((getLvl() + 4) * 2 );
+                setSP((getLvl() + 2) * 2);
+                setVel((getLvl() + 1) * 2);
+            }
+
+            if(Raca.getRaca() == "Quincy"){
+                setSTA((getLvl() + 4) * 4);
+                setDef((getLvl() + 2) * 2);
+                setAtk((getLvl() + 1) * 2);
+                setSP((getLvl() + 6) * 6);
+                setVel((getLvl() + 5) * 5);
+            }
+
+            if(Raca.getRaca() == "Shinigami"){
+                setSTA((getLvl() + 7) * 7);
+                setDef((getLvl() + 3) * 3);
+                setAtk((getLvl() + 4) * 4);
+                setSP((getLvl() + 5) * 5);
+                setVel((getLvl() + 2) * 2);
+            }
+
+            if(Raca.getRaca() == "Hollow"){
+                setSTA((getLvl() + 10) * 10);
+                setDef((getLvl() + 4) * 4);
+                setAtk((getLvl() + 6) * 6);
+                setSP((getLvl() + 9) * 9);
+                setVel((getLvl() + 1) * 2);
+            }
+
+            if(Raca.getRaca() == "Vaizard"){
+                setSTA((getLvl() + 7) * 7 );
+                setDef((getLvl() + 3) * 3);
+                setAtk((getLvl() + 5) * 5);
+                setSP((getLvl() + 15) * 15);
+                setVel((getLvl() + 4) * 4);
+            }
+        }
+        public static void XPLV(){
+            if (XP == 100){
+                Atributos.setLvl(1);
+                System.out.println("Voce Subio Para O Lvl: " + Atributos.getLvl());
+                Atributos.LvlUp();
+            }
+            if (XP == 500){
+                Atributos.setLvl(2);
+                System.out.println("Voce Subio Para O Lvl: " + Atributos.getLvl());
+                Atributos.LvlUp();
+            }
+            if (XP == 1000){
+                Atributos.setLvl(3);
+                System.out.println("Voce Subio Para O Lvl: " + Atributos.getLvl());
+                Atributos.LvlUp();
+            }
+
+        }
+   }
+

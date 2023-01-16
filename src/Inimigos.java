@@ -57,8 +57,9 @@ public class Inimigos {
     }
     public static void setInimigoRnd(int Lvl){
         Random Inimigos = new Random();
-        switch (Inimigos.nextInt(1,6)){
-            case 1:
+        var X = Inimigos.nextInt(0,5);
+        switch ((X)){
+            case 0:
                 TipoDoInimigo = "Hollow";
                 calcularForcaLvl();
                 setLvl(Lvl);
@@ -66,35 +67,35 @@ public class Inimigos {
                 setAtk(30 + getForcaLvl());
                 setVelocidade(15 + getForcaLvl());
                 break;
-            case 2:
+            case 1:
                 TipoDoInimigo = "Quincy";
                 calcularForcaLvl();
                 setLvl(Lvl);
                 setHp(80 + getForcaLvl());
                 setAtk(50 + getForcaLvl());
                 setVelocidade(30 + getForcaLvl());
-            case 3:
+            case 2:
                 TipoDoInimigo = "Arrancar";
                 calcularForcaLvl();
                 setLvl(Lvl);
                 setHp(120 + getForcaLvl());
                 setAtk(100 + getForcaLvl());
                 setVelocidade(25 + getForcaLvl());
-            case 4:
+            case 3:
                 TipoDoInimigo = "Vizard";
                 calcularForcaLvl();
                 setLvl(Lvl);
                 setHp(150 + getForcaLvl());
                 setAtk(120 + getForcaLvl());
                 setVelocidade(40 + getForcaLvl());
-            case 5:
+            case 4:
                 TipoDoInimigo = "Shinigami";
                 calcularForcaLvl();
                 setLvl(Lvl);
                 setHp(100 + getForcaLvl());
                 setAtk(40 + getForcaLvl());
                 setVelocidade(20 + getForcaLvl());
-            case 6:
+            case 5:
                 TipoDoInimigo = "Fullbring";
                 calcularForcaLvl();
                 setLvl(Lvl);
@@ -106,23 +107,42 @@ public class Inimigos {
 
     public static void calcularForcaLvl(){
         if(getTipoDoInimigo() == "Hollow"){
-            setForcaLvl(getLvl() + (3 * 3));
-            setHp(getLvl() * 3);
+            if (getLvl() >= 1){
+                setForcaLvl((getLvl() + 3) * 3);
+                setHp(getLvl() * 3);
+            }
+
         }
         if(getTipoDoInimigo() == "Quincy"){
-            setForcaLvl(getLvl() + (3 * 3));
+            if (getLvl() >= 1){
+                setForcaLvl((getLvl() + 3) * 3);
+                setHp((getLvl() + 3) * 3);
+            }
         }
         if(getTipoDoInimigo() == "Arrancar"){
-            setForcaLvl(getLvl() + (5 * 6));
+            if (getLvl() >=1){
+                setForcaLvl((getLvl() + 5) * 6);
+                setHp((getLvl() + 5) * 6);
+            }
         }
         if(getTipoDoInimigo() == "Fullbring"){
-            setForcaLvl(getLvl() + (2 * 2));
+            if (getLvl() >=1){
+                setForcaLvl((getLvl() + 2) * 2);
+                setHp((getLvl() + 2) *2);
+            }
+
         }
         if(getTipoDoInimigo() == "Vizard"){
-            setForcaLvl(getLvl() + (5 * 7));
+            if (getLvl() >=1){
+                setForcaLvl((getLvl() + 5) * 7);
+                setHp((getLvl() + 5) *7);
+            }
         }
         if(getTipoDoInimigo() == "Shinigami"){
-            setForcaLvl(getLvl() + (3 * 4));
+            if (getLvl() >=1){
+                setForcaLvl((getLvl() + 3) * 4);
+                setHp((getLvl() + 3) *4);
+            }
         }
     }
 }
